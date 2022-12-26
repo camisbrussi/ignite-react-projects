@@ -14,7 +14,7 @@ export function Sidebar() {
       />
 
       <div className={styles.profile}>
-         <Avatar src="https://github.com/camisbrussi.png" alt="" />
+         <Avatar src="https://github.com/camisbrussi.png" />
 
           <strong>Camila Sbrussi</strong>
           <span>Engenheira de Software</span>

@@ -9,7 +9,7 @@ import { useState } from 'react'
 
 const tasksDefault = [
   {
-    description: 'Teste 1',
+    description: 'Lorem ipsum dolor sit amet, consectetur adip',
     check: true,
   },
   {
@@ -35,6 +35,8 @@ export function App() {
     setTask([])
   }
 
+  function concludeTask(description: string) {}
+
   return (
     <>
       <Header />
@@ -43,10 +45,14 @@ export function App() {
         <main>
           <header>
             <b>
-              Tarefas criadas <span>5</span>
+              Tarefas criadas <span>{tasksDefault.length}</span>
             </b>
             <b>
-              Concluídas <span>2 de 5</span>
+              Concluídas
+              <span>
+                {tasksDefault.filter((task) => task.check).length} de{' '}
+                {tasksDefault.length}
+              </span>
             </b>
           </header>
           {tasks?.map((task) => {
@@ -56,6 +62,7 @@ export function App() {
                 description={task.description}
                 checked={task.check}
                 onDelete={removeTask}
+                onCheck={concludeTask}
               />
             )
           })}

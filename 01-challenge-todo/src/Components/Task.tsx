@@ -6,12 +6,18 @@ interface TaskProps {
   checked: boolean
   description: string
   onDelete: (description: string) => void
+  onCheck: (description: string) => void
 }
 
-export function Task({ checked, description, onDelete }: TaskProps) {
+export function Task({ checked, description, onDelete, onCheck }: TaskProps) {
   return (
     <div className={styles.task}>
-      <Checkbox.Root className={styles.checkbox} checked={checked} id="c1">
+      <Checkbox.Root
+        className={styles.checkbox}
+        checked={checked}
+        onChange={() => onCheck(description)}
+        id="c1"
+      >
         <Checkbox.Indicator className={styles.indicator}>
           <Check size={16} weight="bold" />
         </Checkbox.Indicator>
